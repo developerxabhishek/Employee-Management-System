@@ -1,14 +1,14 @@
 // userSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isAdmin: false,
   isLogin: false,
-  user: {}
+  user: {},
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     setIsAdmin: (state, action) => {
@@ -19,8 +19,8 @@ const userSlice = createSlice({
     },
     setUser: (state, action) => {
       state.user = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { setIsAdmin, setIsLogin, setUser } = userSlice.actions;

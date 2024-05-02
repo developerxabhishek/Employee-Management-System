@@ -1,6 +1,5 @@
 import User from "../models/userModel.js";
 
-
 import { createJWT } from "../utils/index.js";
 
 export const registerUser = async (req, res) => {
@@ -101,9 +100,6 @@ export const logoutUser = async (req, res) => {
   }
 };
 
-
-
-
 export const getUser = async (req, res) => {
   try {
     let data = await User.find();
@@ -114,33 +110,32 @@ export const getUser = async (req, res) => {
       message: error.message,
     });
   }
-}
+};
 
-export const deleteUser=async(req,res)=>{
-  try{
+export const deleteUser = async (req, res) => {
+  try {
     let data = await User.findByIdAndDelete(req.params.id);
     res.status(200).json({
       success: true,
       message: "User deleted successfully",
       user: data,
     });
-  }catch(error){
+  } catch (error) {
     return res.status(400).json({
       success: false,
       message: error.message,
     });
   }
-}
+};
 
-
-export const getusername=async(req,res)=>{
-  try{
+export const getusername = async (req, res) => {
+  try {
     let data = await User.findById(req.params.id);
     res.status(200).json(data);
-  }catch(error){
+  } catch (error) {
     return res.status(400).json({
       success: false,
       message: error.message,
     });
   }
-}
+};
