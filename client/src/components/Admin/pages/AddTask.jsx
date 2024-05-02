@@ -15,17 +15,15 @@ const AddTask = () => {
 
     setInput({ ...input, [name]: value });
   };
-  console.log(input);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios
         .post("http://localhost:5000/api/task/settask", input)
         .then((response) => {
-          // toast.success(response.data.message);
-        })
-        .then(() => {
-          setInput({});
+          toast.success("Task Added Successfully");
+          setInput("");
         });
     } catch (err) {
       console.log(err);
